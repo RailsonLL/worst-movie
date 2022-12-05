@@ -1,6 +1,5 @@
 package com.railson.worstmovie.controller;
 
-import com.railson.worstmovie.dto.MovieDto;
 import com.railson.worstmovie.dto.ProducerWinIntervalMinMaxDto;
 import com.railson.worstmovie.dto.SimpleMovieDto;
 import com.railson.worstmovie.dto.YearWithMultipleWinnersDto;
@@ -9,13 +8,15 @@ import com.railson.worstmovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/api/movie")
+@RequestMapping("/api/movies")
 public class MovieController {
 
     @Autowired
@@ -23,50 +24,52 @@ public class MovieController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<SimpleMovieDto> getAllMovies(){
-        return service.getAllMovies();
+    public ResponseEntity<List<SimpleMovieDto>> getAllMovies(){
+        List<SimpleMovieDto> list = service.getAllMovies();
+        if (Objects.isNull(list) || list.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(list);
     }
-
-    /*@GetMapping("/studio")
-    @ResponseStatus(HttpStatus.OK)
-    public List<StudioDto> getAllStudios(){
-        return service.getAllStudiosDto();
-    }*/
-
-    /*@GetMapping("/studio/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public StudioDto getStudioById(@PathVariable Integer id){
-        return service.getStudioById(id);
-    }*/
-
-    /*@GetMapping("/producer")
-    @ResponseStatus(HttpStatus.OK)
-    public List<ProducerDto> getAllProducers(){
-        return service.getAllProducers();
-    }*/
 
     @GetMapping("/max-min-win-interval-for-producers")
     @ResponseStatus(HttpStatus.OK)
-    public ProducerWinIntervalMinMaxDto getProducerWinIntervalMinMax(){
-        return service.getProducerWinIntervalMinMax();
+    public ResponseEntity<ProducerWinIntervalMinMaxDto> getProducerWinIntervalMinMax(){
+        ProducerWinIntervalMinMaxDto dto = service.getProducerWinIntervalMinMax();
+        if (Objects.isNull(dto)) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(dto);
     }
 
     @GetMapping("/years-with-multiple-winners")
     @ResponseStatus(HttpStatus.OK)
-    public List<YearWithMultipleWinnersDto> yearsWithMultipleWinners(){
-        return service.getYearsWithMultipleWinners();
+    public ResponseEntity<List<YearWithMultipleWinnersDto>> yearsWithMultipleWinners(){
+        List<YearWithMultipleWinnersDto> list = service.getYearsWithMultipleWinners();
+        if (Objects.isNull(list) || list.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/years-list")
     @ResponseStatus(HttpStatus.OK)
-    public List<Integer> getYearsList(){
-        return service.getYearsList();
+    public ResponseEntity<List<Integer>> getYearsList(){
+        List<Integer> list = service.getYearsList();
+        if (Objects.isNull(list) || list.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/winner-years-list")
     @ResponseStatus(HttpStatus.OK)
-    public List<Integer> getWinnerYearsList(){
-        return service.getWinnerYearsList();
+    public ResponseEntity<List<Integer>> getWinnerYearsList(){
+        List<Integer> list = service.getWinnerYearsList();
+        if (Objects.isNull(list) || list.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/movies-by-winner-and-year")
@@ -78,8 +81,8 @@ public class MovieController {
     @GetMapping("/movies-page-by-winner-year")
     @ResponseStatus(HttpStatus.OK)
     public Page<SimpleMovieDto> getMoviesPageByWinnerAndYear(
-            @RequestParam(required = false) String winner,
-            @RequestParam(required = false) String year,
+            @RequestParam String winner,
+            @RequestParam String year,
             @RequestParam Integer page,
             @RequestParam Integer size
     ){

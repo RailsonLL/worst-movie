@@ -1,8 +1,6 @@
 package com.railson.worstmovie.repository;
 
 import com.railson.worstmovie.entity.Producer;
-import com.railson.worstmovie.entity.Studio;
-import com.railson.worstmovie.enums.Winner;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

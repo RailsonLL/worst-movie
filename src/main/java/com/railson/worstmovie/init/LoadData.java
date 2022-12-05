@@ -8,7 +8,6 @@ import com.opencsv.exceptions.CsvValidationException;
 import com.railson.worstmovie.entity.Movie;
 import com.railson.worstmovie.entity.Producer;
 import com.railson.worstmovie.entity.Studio;
-import com.railson.worstmovie.enums.Winner;
 import com.railson.worstmovie.service.MovieService;
 import com.railson.worstmovie.service.ProducerService;
 import com.railson.worstmovie.service.StudioService;
@@ -80,7 +79,7 @@ public class LoadData {
                 Studio studio = studioService.getStudioByName(studioName);
                 if (Objects.nonNull(studio)) {
                     studioList.add(studio);
-                } else studioList.add(studioService.save(new Studio(null, studioName)));
+                } else studioList.add(studioService.create(new Studio(null, studioName)));
         });
         return studioList;
     }

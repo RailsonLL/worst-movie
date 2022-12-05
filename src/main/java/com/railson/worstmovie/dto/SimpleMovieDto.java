@@ -1,12 +1,9 @@
 package com.railson.worstmovie.dto;
 
 import com.railson.worstmovie.entity.Movie;
-import com.railson.worstmovie.enums.Winner;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @NoArgsConstructor

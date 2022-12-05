@@ -1,6 +1,5 @@
 package com.railson.worstmovie.dto;
 
-import com.railson.worstmovie.enums.Winner;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -9,7 +9,7 @@ import { WinnerStudio } from '../models/winners-studio';
 })
 export class StudioService {
 
-  private readonly api = `${environment.api}/api/studio`;
+  private readonly api = `${environment.api}/api/studios`;
 
   constructor( private http: HttpClient ) { }
 

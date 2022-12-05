@@ -3,7 +3,6 @@ package com.railson.worstmovie.repository;
 import com.railson.worstmovie.dto.SimpleMovieDto;
 import com.railson.worstmovie.dto.YearWithMultipleWinnersDto;
 import com.railson.worstmovie.entity.Movie;
-import com.railson.worstmovie.enums.Winner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,8 +11,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
-
-    List<Movie> findByWinner(Winner winner);
 
     List<Movie> findByWinnerAndYear(boolean winner, Integer year);
 
