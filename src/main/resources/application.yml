@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:banco
+    username: admin
+    password: admin
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
