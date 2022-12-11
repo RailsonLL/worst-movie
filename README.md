@@ -11,4 +11,5 @@ Versões
 
 Para executar é necessário rodar a aplicação no IntelliJ e VSCode, e então acessar o localhost http://localhost:4200 no browser.
 
-Obs: Faltou a parte dos testes unitários e de integração. Eu posso implementar essa parte também, só precisaria de mais uma semana pelo motivo da agenda apertada.
+Para execcutar os testes do backend rodar os testes da pasta: test/java/com.railson.worst-movie.
+Os testes do frontend executar o ng test no VSCode. Os arquivos de implementação dos testes são: dashboard.component.spec.ts e o list.component.spec.ts.
