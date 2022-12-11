@@ -31,10 +31,10 @@ export class DashboardComponent implements OnInit {
     this.loadYearWithMultipleWinners();
     this.loadTop3WinnerStudios();
     this.loadProducerWinIntervalMinMax();
-    this.loadYearsList();
+    this.loadWinnerYearsList();
   }
 
-  private loadYearWithMultipleWinners() {
+  loadYearWithMultipleWinners() {
     this.movieService.getYearWithMultipleWinners().subscribe({
       next: (response) => {
         this.yearWithMultipleWinners = response;
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  private loadTop3WinnerStudios() {
+  loadTop3WinnerStudios() {
     this.studioService.getTop3WinnerStudios().subscribe({
       next: (response) => {
         this.topWinnerStudios = response;
@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  private loadProducerWinIntervalMinMax() {
+  loadProducerWinIntervalMinMax() {
     this.movieService.getProducerWinIntervalMinMax().subscribe({
       next: (response) => {
         this.producerWinIntervalMinMax = response;
@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  private loadYearsList() {
+  loadWinnerYearsList() {
     this.movieService.getWinnerYearsList().subscribe({
       next: (response) => {
         this.yearsList = response;

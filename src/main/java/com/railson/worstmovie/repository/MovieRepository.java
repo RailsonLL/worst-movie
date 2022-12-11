@@ -1,7 +1,7 @@
 package com.railson.worstmovie.repository;
 
 import com.railson.worstmovie.dto.SimpleMovieDto;
-import com.railson.worstmovie.dto.YearWithMultipleWinnersDto;
+import com.railson.worstmovie.dto.YearsWithMultipleWinnersDto;
 import com.railson.worstmovie.entity.Movie;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,14 +32,14 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
     Page<SimpleMovieDto> findByYear(Integer year, Pageable pageable);
 
     @Query(
-            value = "SELECT new com.railson.worstmovie.dto.YearWithMultipleWinnersDto(year AS year, COUNT(1) AS winnerCount) "+
+            value = "SELECT new com.railson.worstmovie.dto.YearsWithMultipleWinnersDto(year AS year, COUNT(1) AS winnerCount) "+
                     "FROM Movie "+
                     "WHERE winner = true " +
                     "GROUP BY year "+
                     "HAVING COUNT(1) >= 2 "+
                     "ORDER BY year "
     )
-    List<YearWithMultipleWinnersDto> findYearWithMultipleWinners();
+    List<YearsWithMultipleWinnersDto> findYearWithMultipleWinners();
 
     @Query(
             value = "SELECT DISTINCT year FROM Movie "+

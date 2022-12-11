@@ -2,7 +2,7 @@ package com.railson.worstmovie.controller;
 
 import com.railson.worstmovie.dto.ProducerWinIntervalMinMaxDto;
 import com.railson.worstmovie.dto.SimpleMovieDto;
-import com.railson.worstmovie.dto.YearWithMultipleWinnersDto;
+import com.railson.worstmovie.dto.YearsWithMultipleWinnersDto;
 import com.railson.worstmovie.entity.Movie;
 import com.railson.worstmovie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +44,8 @@ public class MovieController {
 
     @GetMapping("/years-with-multiple-winners")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<YearWithMultipleWinnersDto>> yearsWithMultipleWinners(){
-        List<YearWithMultipleWinnersDto> list = service.getYearsWithMultipleWinners();
+    public ResponseEntity<List<YearsWithMultipleWinnersDto>> yearsWithMultipleWinners(){
+        List<YearsWithMultipleWinnersDto> list = service.getYearsWithMultipleWinners();
         if (Objects.isNull(list) || list.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

@@ -3,7 +3,7 @@ package com.railson.worstmovie.service;
 import com.railson.worstmovie.dto.ProducerDto;
 import com.railson.worstmovie.dto.ProducerWinIntervalMinMaxDto;
 import com.railson.worstmovie.dto.SimpleMovieDto;
-import com.railson.worstmovie.dto.YearWithMultipleWinnersDto;
+import com.railson.worstmovie.dto.YearsWithMultipleWinnersDto;
 import com.railson.worstmovie.dto.mapper.MovieMapper;
 import com.railson.worstmovie.entity.Movie;
 import com.railson.worstmovie.repository.MovieRepository;
@@ -39,7 +39,7 @@ public class MovieService {
     }
 
 
-    public List<YearWithMultipleWinnersDto> getYearsWithMultipleWinners() {
+    public List<YearsWithMultipleWinnersDto> getYearsWithMultipleWinners() {
         return  repository.findYearWithMultipleWinners();
     }
 
