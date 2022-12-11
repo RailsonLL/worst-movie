@@ -8,7 +8,7 @@ Versões
 * Node: 16.16.0
 * rxjs: 7.5.7
 * typescript: 4.7.4
-* jasmine 4.3.1
+* jasmine 4.5.0
 * Karma 6.4.1
 
 Para executar é necessário rodar a aplicação no IntelliJ e VSCode, e então acessar o localhost http://localhost:4200 no browser.
