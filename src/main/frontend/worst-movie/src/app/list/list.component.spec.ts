@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
+import { of } from 'rxjs';
 
 describe('ListComponent', () => {
   let movieService: MovieService;
@@ -27,18 +28,21 @@ describe('ListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should upload a list of winning films by selected year', () => {
-    /* const winnerMovies = [
-      { id:1, year: 1990, title: 'Movie1', winner: true },
-      { id:2, year: 1991, title: 'Movie2', winner: true },
-      { id:3, year: 1992, title: 'Movie3', winner: true }
-    ]
-    spyOn(movieService, 'getWinnerMoviesByYear').withArgs(123).and.returnValue(of(winnerMovies));
-    component.searchWinnerMoviesByYear();
+  it('should load a page with a list of films by year and winner selected', () => {
+    const moviesPage = {
+      page: 1,
+      totalElements: 99,
+      content: [{ id:1, year: 1990, title: 'Movie1', winner: true }]
+    }
 
-    expect(component.movieList[0]).toEqual( { id:1, year: 1990, title: 'Movie1', winner: true } );
-    expect(component.movieList[1]).toEqual( { id:2, year: 1991, title: 'Movie2', winner: true } );
-    expect(component.movieList[2]).toEqual( { id:3, year: 1992, title: 'Movie3', winner: true } );
-    expect(movieService.getWinnerMoviesByYear).toHaveBeenCalled(); */
+    spyOn(movieService, 'getMoviesByYearAndWinnerPage').and.returnValue(of(moviesPage));
+    component.year = 1990;
+    component.winnerOptin = true;
+    component.loadMoviePage();
+
+    expect(component.pageResult.page).toEqual(1);
+    expect(component.pageResult.totalElements).toEqual(99);
+    expect(component.pageResult.content[0]).toEqual( { id:1, year: 1990, title: 'Movie1', winner: true } );
+    expect(movieService.getMoviesByYearAndWinnerPage).toHaveBeenCalled();
   });
 });

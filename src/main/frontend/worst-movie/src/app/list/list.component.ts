@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
     this.loadMoviePage();
   }
 
-  private loadMoviePage() {
+  loadMoviePage() {
     this.movieService.getMoviesByYearAndWinnerPage(this.year, this.winnerOptin, 0, 207).subscribe({
       next: (response) => {
         this.pageResult = response;
@@ -37,7 +37,7 @@ export class ListComponent implements OnInit {
     })
   }
 
-  private loadYearsList() {
+  loadYearsList() {
     this.movieService.getYearsList().subscribe({
       next: (response) => {
         this.yearsList = response;

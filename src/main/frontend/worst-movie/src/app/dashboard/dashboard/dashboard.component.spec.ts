@@ -80,18 +80,19 @@ describe('DashboardComponent', () => {
     expect(movieService.getWinnerYearsList).toHaveBeenCalled();
   });
 
-  it('should upload a list of winning films by selected year', () => {
+  it('should load a list of winning films by selected year', () => {
     const winnerMovies = [
       { id:1, year: 1990, title: 'Movie1', winner: true },
-      { id:2, year: 1991, title: 'Movie2', winner: true },
-      { id:3, year: 1992, title: 'Movie3', winner: true }
+      { id:2, year: 1990, title: 'Movie2', winner: true },
+      { id:3, year: 1990, title: 'Movie3', winner: true }
     ]
-    spyOn(movieService, 'getWinnerMoviesByYear').withArgs(123).and.returnValue(of(winnerMovies));
+    spyOn(movieService, 'getWinnerMoviesByYear').and.returnValue(of(winnerMovies));
+    component.year = 1990;
     component.searchWinnerMoviesByYear();
 
     expect(component.movieList[0]).toEqual( { id:1, year: 1990, title: 'Movie1', winner: true } );
-    expect(component.movieList[1]).toEqual( { id:2, year: 1991, title: 'Movie2', winner: true } );
-    expect(component.movieList[2]).toEqual( { id:3, year: 1992, title: 'Movie3', winner: true } );
+    expect(component.movieList[1]).toEqual( { id:2, year: 1990, title: 'Movie2', winner: true } );
+    expect(component.movieList[2]).toEqual( { id:3, year: 1990, title: 'Movie3', winner: true } );
     expect(movieService.getWinnerMoviesByYear).toHaveBeenCalled();
   });
 
