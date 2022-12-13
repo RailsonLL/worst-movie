@@ -1,6 +1,6 @@
-import { Movie } from './../models/movie';
+import { Movie } from '../models/movie';
 import { ProducerWinIntervalMinMax } from '../models/producer-win-interval-min-max';
-import { environment } from './../../../environments/environment';
+import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

@@ -1,5 +1,5 @@
-import { StudioService } from 'src/app/shared/services/studio.service';
-import { MovieService } from './../../shared/services/movie.service';
+import { StudioService } from 'src/app/services/studio.service';
+import { MovieService } from '../../services/movie.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 

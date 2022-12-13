@@ -1,10 +1,10 @@
-import { Movie } from './../../shared/models/movie';
-import { ProducerWinIntervalMinMax } from './../../shared/models/producer-win-interval-min-max';
+import { Movie } from '../../models/movie';
+import { ProducerWinIntervalMinMax } from '../../models/producer-win-interval-min-max';
 import { Component, OnInit } from '@angular/core';
-import { WinnerStudio } from 'src/app/shared/models/winners-studio';
-import { StudioService } from 'src/app/shared/services/studio.service';
-import { YearWithMultipleWinners } from '../../shared/models/year-with-multiple-winners';
-import { MovieService } from './../../shared/services/movie.service';
+import { WinnerStudio } from 'src/app/models/winners-studio';
+import { StudioService } from 'src/app/services/studio.service';
+import { YearWithMultipleWinners } from '../../models/year-with-multiple-winners';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-dashboard',

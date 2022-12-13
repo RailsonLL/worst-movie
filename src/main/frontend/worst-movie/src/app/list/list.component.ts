@@ -1,5 +1,5 @@
-import { Movie } from './../shared/models/movie';
-import { MovieService } from './../shared/services/movie.service';
+import { Movie } from '../models/movie';
+import { MovieService } from '../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { PageResult } from '../shared/utils/page-result';
 
