@@ -37,7 +37,7 @@
           <td class="td">{{ obj.id }}</td>
           <td class="td">{{ obj.year }}</td>
           <td class="td">{{ obj.title }}</td>
-          <td class="td">{{ obj.winner == true ? 'Yes' : 'No' }}</td>
+          <td class="td">{{ obj.winner | convertWinner }}</td>
         </tr>
       </tbody>
     </table>

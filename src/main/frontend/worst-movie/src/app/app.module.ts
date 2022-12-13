@@ -1,3 +1,4 @@
+import { ConvertWinner } from './pipes/convert-winner.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HomeComponent,
     ListComponent,
+    ConvertWinner
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule
   ],
+  exports: [ConvertWinner],
   providers: [ ],
   bootstrap: [AppComponent]
 })
