@@ -10,6 +10,6 @@ public interface ProducerRepository extends JpaRepository<Producer, Integer> {
 
     Optional<Producer> findByName(String producerName);
 
-    List<Producer> findByMoviesWinner(Boolean winner);
+    List<Producer> findDistinctByMoviesWinner(Boolean winner);
 
 }

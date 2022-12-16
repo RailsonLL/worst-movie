@@ -22,30 +22,18 @@ public class ProducerWinIntervalMinMaxDto {
         return !this.max.isEmpty() ? interval > this.max.get(0).getInterval() : true;
     }
 
-    private boolean newProducerMin(String producer) {
-        return !this.min.isEmpty() ? !producer.equals(this.min.get(0).getProducer()) : true;
-    }
-
-    private boolean newProducerMax(String producer) {
-        return !this.max.isEmpty() ? !producer.equals(this.max.get(0).getProducer()) : true;
-    }
-
     public void addIntervalMin(String producer, Integer interval, Integer previousWin, Integer followingWin) {
         if (newIntervalMin(interval)) {
             this.min.clear();
         }
-        if (newProducerMin(producer)) {
-            this.min.add(new ProducerWinIntervalDto(producer, interval, previousWin, followingWin));
-        }
+        this.min.add(new ProducerWinIntervalDto(producer, interval, previousWin, followingWin));
     }
 
     public void addIntervalMax(String producer, Integer interval, Integer previousWin, Integer followingWin) {
         if (newIntervalMax(interval)) {
             this.max.clear();
         }
-        if (newProducerMax(producer)) {
-            this.max.add(new ProducerWinIntervalDto(producer, interval, previousWin, followingWin));
-        }
+        this.max.add(new ProducerWinIntervalDto(producer, interval, previousWin, followingWin));
     }
 
 }

@@ -28,7 +28,7 @@ public class ProducerService {
     }
 
     public List<ProducerDto> getProducersByMovieWinner(){
-        return ProducerMapper.toDto(repository.findByMoviesWinner(true), modelMapper);
+        return ProducerMapper.toDto(repository.findDistinctByMoviesWinner(true), modelMapper);
     }
 
 }
